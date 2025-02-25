@@ -1,0 +1,91 @@
+{
+  "name": "@tsdiapi/cardcom",
+  "description": "A TSDIAPI plugin for integrating CardCom payment processing.",
+  "variables": [
+    {
+      "name": "CARDCOM_API_URL",
+      "type": "string",
+      "default": "https://secure.cardcom.solutions/api/v11",
+      "configurable": true,
+      "description": "Base API URL for CardCom services",
+      "inquirer": {
+        "type": "input",
+        "message": "Enter the CardCom API base URL:"
+      }
+    },
+    {
+      "name": "CARDCOM_TERMINAL_ID",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "Your CardCom terminal ID",
+      "inquirer": {
+        "type": "input",
+        "message": "Enter your CardCom terminal ID:"
+      }
+    },
+    {
+      "name": "CARDCOM_API_NAME",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "Your CardCom API name",
+      "inquirer": {
+        "type": "input",
+        "message": "Enter your CardCom API name:"
+      }
+    },
+    {
+      "name": "CARDCOM_API_PASSWORD",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "Your CardCom API password",
+      "validate": {
+        "type": "string",
+        "minLength": 8
+      },
+      "inquirer": {
+        "type": "password",
+        "message": "Enter your CardCom API password:"
+      }
+    },
+    {
+      "name": "CARDCOM_SUCCESS_REDIRECT_URL",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "URL to redirect to after a successful payment",
+      "inquirer": {
+      "type": "input",
+      "message": "Enter the URL to redirect to after a successful payment:"
+      }
+    },
+    {
+      "name": "CARDCOM_FAILED_REDIRECT_URL",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "URL to redirect to after a failed payment",
+      "inquirer": {
+      "type": "input",
+      "message": "Enter the URL to redirect to after a failed payment:"
+      }
+    },
+    {
+      "name": "CARDCOM_WEBHOOK_URL",
+      "type": "string",
+      "default": "",
+      "configurable": true,
+      "description": "URL for handling webhooks",
+      "inquirer": {
+      "type": "input",
+      "message": "Enter the URL for handling webhooks:"
+      }
+    }
+  ],
+  "postMessages": [
+    "✅ CardCom Plugin has been successfully installed!",
+    "🔹 Use `const cardcom = getCardComProvider();` to start processing payments with CardCom."
+  ]
+}
