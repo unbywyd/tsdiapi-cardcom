@@ -4,10 +4,12 @@ A **TSDIAPI** plugin to integrate with **CardCom** payment gateway, allowing sec
 
 ## 📌 About
 
-This **TSDIAPI** plugin provides a seamless way to interact with **CardCom's API**, supporting transactions, refunds, card tokenization, and more.
+This **TSDIAPI** plugin provides a seamless way to interact with **CardCom's API (v11)**, supporting transactions, refunds, card tokenization, and more.
 
 🔗 **TSDIAPI CLI:** [@tsdiapi/cli](https://www.npmjs.com/package/@tsdiapi/cli)  
-🔗 **CardCom API Docs:** [CardCom Official API](https://secure.cardcom.solutions/)
+🔗 **CardCom API v11 Docs:** [CardCom API Documentation](https://secure.cardcom.solutions/swagger/index.html?url=/swagger/v11/swagger.json#tag/Transactions/operation/Transactions_Transaction)  
+
+This plugin is based on **CardCom API v11**, ensuring compatibility with the latest payment processing features and security standards.
 
 ---
 
