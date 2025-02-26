@@ -15,6 +15,12 @@ This plugin is based on **CardCom API v11**, ensuring compatibility with the lat
 
 ## 📦 Installation
 
+Install the plugin using the **TSDIAPI CLI**:
+
+```bash
+tsdiapi plugins add cardcom
+```
+
 Install the plugin using npm:
 
 ```bash

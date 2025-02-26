@@ -1,7 +1,7 @@
 {
   "name": "@tsdiapi/cardcom",
   "description": "A TSDIAPI plugin to extend API functionality with cardcom.",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "main": "output/index.js",
   "types": "output/index.d.ts",
   "scripts": {
@@ -14,6 +14,11 @@
   "keywords": [
     "tsdiapi"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unbywyd/tsdiapi-cardcom"
+  },
+  "homepage": "https://github.com/unbywyd/tsdiapi-cardcom",
   "publishConfig": {
     "access": "public"
   },
