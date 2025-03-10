@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
-import { PluginOptions } from ".";
 import { AppContext } from "@tsdiapi/server";
+import { PluginOptions } from "./index.js";
 
 // ========================== BASE RESPONSE ==========================
 export interface CardComBaseResponse {

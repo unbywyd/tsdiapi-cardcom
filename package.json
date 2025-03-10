@@ -1,9 +1,10 @@
 {
   "name": "@tsdiapi/cardcom",
   "description": "A TSDIAPI plugin to extend API functionality with cardcom.",
-  "version": "0.0.1-alpha.4",
+  "version": "0.1.0",
   "main": "output/index.js",
   "types": "output/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc"
   },
@@ -35,11 +36,11 @@
     "axios": "^1.7.9"
   },
   "devDependencies": {
-    "@tsdiapi/server": "^0.0.1-alpha",
     "@types/node": "^22.13.5",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
+    "@tsdiapi/server": "^0.1.0",
     "reflect-metadata": "^0.2.2",
     "typedi": "^0.10.0"
   }

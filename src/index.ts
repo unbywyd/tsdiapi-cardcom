@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import type { AppContext, AppPlugin } from "@tsdiapi/server";
-import { CardComProvider } from "./provider";
-export * from "./provider";
+import { CardComProvider } from "./provider.js";
+export * from "./provider.js";
 let cardComProvider: CardComProvider | null = null;
 
 export type PluginOptions = {

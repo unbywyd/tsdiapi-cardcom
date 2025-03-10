@@ -57,8 +57,8 @@
       "configurable": true,
       "description": "URL to redirect to after a successful payment",
       "inquirer": {
-      "type": "input",
-      "message": "Enter the URL to redirect to after a successful payment:"
+        "type": "input",
+        "message": "Enter the URL to redirect to after a successful payment:"
       }
     },
     {
@@ -68,8 +68,8 @@
       "configurable": true,
       "description": "URL to redirect to after a failed payment",
       "inquirer": {
-      "type": "input",
-      "message": "Enter the URL to redirect to after a failed payment:"
+        "type": "input",
+        "message": "Enter the URL to redirect to after a failed payment:"
       }
     },
     {
@@ -79,8 +79,8 @@
       "configurable": true,
       "description": "URL for handling webhooks",
       "inquirer": {
-      "type": "input",
-      "message": "Enter the URL for handling webhooks:"
+        "type": "input",
+        "message": "Enter the URL for handling webhooks:"
       }
     }
   ],

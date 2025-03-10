@@ -1,5 +1,5 @@
-import { PluginOptions } from ".";
 import { AppContext } from "@tsdiapi/server";
+import { PluginOptions } from "./index.js";
 export interface CardComBaseResponse {
     ResponseCode: number;
     Description: string;

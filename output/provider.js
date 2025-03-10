@@ -1,11 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.CardComProvider = void 0;
-const axios_1 = __importDefault(require("axios"));
-class CardComProvider {
+import axios from "axios";
+export class CardComProvider {
     http;
     config;
     logger;
@@ -16,7 +10,7 @@ class CardComProvider {
         }
         this.config = config;
         this.logger = logger;
-        this.http = axios_1.default.create({
+        this.http = axios.create({
             baseURL: config.apiUrl,
             headers: {
                 "Content-Type": "application/json",
@@ -258,5 +252,4 @@ class CardComProvider {
         }
     }
 }
-exports.CardComProvider = CardComProvider;
 //# sourceMappingURL=provider.js.map
