@@ -228,9 +228,10 @@ export interface CardComTransactionInfoRequest {
 export declare class CardComProvider {
     private http;
     private config;
+    private ctx;
     private logger;
     constructor();
-    init(config: PluginOptions, logger: AppContext["logger"]): void;
+    init(config: PluginOptions, ctx: AppContext): void;
     getAccountInfoById(accountId: number): Promise<CardComGetAccountResponse | null>;
     /**
    * Fetches a list of transactions based on date range.

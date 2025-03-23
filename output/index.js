@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import { CardComProvider } from "./provider.js";
 export * from "./provider.js";
 let cardComProvider = null;
@@ -22,27 +21,27 @@ class App {
     }
     async onInit(ctx) {
         if (cardComProvider) {
-            ctx.logger.warn("🚨 CardCom Plugin is already initialized. Skipping re-initialization.");
+            ctx.fastify.log.warn("🚨 CardCom Plugin is already initialized. Skipping re-initialization.");
             return;
         }
         this.context = ctx;
-        const appConfig = ctx.config.appConfig || {};
-        this.config.apiUrl = this.config.apiUrl || appConfig["CARDCOM_API_URL"];
-        this.config.terminalId = this.config.terminalId || appConfig["CARDCOM_TERMINAL_ID"];
-        this.config.apiName = this.config.apiName || appConfig["CARDCOM_API_NAME"];
-        this.config.apiPassword = this.config.apiPassword || appConfig["CARDCOM_API_PASSWORD"];
-        this.config.successRedirectUrl = this.config.successRedirectUrl || appConfig["CARDCOM_SUCCESS_REDIRECT_URL"];
-        this.config.failedRedirectUrl = this.config.failedRedirectUrl || appConfig["CARDCOM_FAILED_REDIRECT_URL"];
-        this.config.webHookUrl = this.config.webHookUrl || appConfig["CARDCOM_WEBHOOK_URL"];
+        const config = ctx.projectConfig;
+        this.config.apiUrl = config.get("CARDCOM_API_URL", this.config.apiUrl);
+        this.config.terminalId = config.get("CARDCOM_TERMINAL_ID", this.config.terminalId);
+        this.config.apiName = config.get("CARDCOM_API_NAME", this.config.apiName);
+        this.config.apiPassword = config.get("CARDCOM_API_PASSWORD", this.config.apiPassword);
+        this.config.successRedirectUrl = config.get("CARDCOM_SUCCESS_REDIRECT_URL", this.config.successRedirectUrl);
+        this.config.failedRedirectUrl = config.get("CARDCOM_FAILED_REDIRECT_URL", this.config.failedRedirectUrl);
+        this.config.webHookUrl = config.get("CARDCOM_WEBHOOK_URL", this.config.webHookUrl);
         if (!this.config.terminalId || !this.config.apiName || !this.config.apiPassword) {
             throw new Error("❌ CardCom Plugin is missing required credentials.");
         }
-        this.provider.init(this.config, ctx.logger);
+        this.provider.init(this.config, ctx);
         cardComProvider = this.provider;
-        ctx.logger.info("✅ CardCom Plugin initialized.");
+        ctx.fastify.decorate("cardcom", this.provider);
     }
 }
-export function getCardComProvider() {
+export function useCardcomProvider() {
     if (!cardComProvider) {
         throw new Error("❌ CardCom Plugin is not initialized. Use createPlugin() first.");
     }

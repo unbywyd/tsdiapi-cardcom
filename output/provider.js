@@ -2,21 +2,22 @@ import axios from "axios";
 export class CardComProvider {
     http;
     config;
+    ctx;
     logger;
     constructor() { }
-    init(config, logger) {
+    init(config, ctx) {
         if (!config.apiUrl || !config.terminalId || !config.apiName || !config.apiPassword) {
             throw new Error("❌ CardCom API configuration is missing required fields.");
         }
         this.config = config;
-        this.logger = logger;
+        this.ctx = ctx;
+        this.logger = ctx.fastify.log;
         this.http = axios.create({
             baseURL: config.apiUrl,
             headers: {
                 "Content-Type": "application/json",
             },
         });
-        logger.info("✅ CardCom Provider initialized.");
     }
     async getAccountInfoById(accountId) {
         try {

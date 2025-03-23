@@ -260,25 +260,24 @@ export interface CardComTransactionInfoRequest {
 export class CardComProvider {
     private http: AxiosInstance;
     private config: PluginOptions;
-    private logger: AppContext["logger"];
-
+    private ctx: AppContext;
+    private logger: AppContext['fastify']['log'];
     constructor() { }
 
-    init(config: PluginOptions, logger: AppContext["logger"]) {
+    init(config: PluginOptions, ctx: AppContext) {
         if (!config.apiUrl || !config.terminalId || !config.apiName || !config.apiPassword) {
             throw new Error("❌ CardCom API configuration is missing required fields.");
         }
 
         this.config = config;
-        this.logger = logger;
+        this.ctx = ctx;
+        this.logger = ctx.fastify.log;
         this.http = axios.create({
             baseURL: config.apiUrl,
             headers: {
                 "Content-Type": "application/json",
             },
         });
-
-        logger.info("✅ CardCom Provider initialized.");
     }
 
     async getAccountInfoById(accountId: number): Promise<CardComGetAccountResponse | null> {

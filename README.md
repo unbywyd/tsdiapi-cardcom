@@ -95,11 +95,11 @@ this.config.webHookUrl = this.config.webHookUrl || appConfig["CARDCOM_WEBHOOK_UR
 
 ## 📌 How to Use
 
-After installing and configuring the plugin, you can interact with **CardCom API** using `getCardComProvider()`.
+After installing and configuring the plugin, you can interact with **CardCom API** using `useCardcomProvider()`.
 
 ### **1️⃣ Authorize a Payment**
 ```typescript
-const cardcom = getCardComProvider();
+const cardcom = useCardcomProvider();
 const response = await cardcom.authorizePayment(100, "your_card_token", "1225");
 console.log(response);
 ```
